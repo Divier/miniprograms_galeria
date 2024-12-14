@@ -20,6 +20,37 @@
   margin-top: 24px;
 }
 
+.date-radio {
+  padding: 26rpx;
+}
+
+.date-radio label + label {
+  margin-left: 20rpx;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+}
+.row-title {
+  flex: 1;
+  padding-top: 28rpx;
+  padding-bottom: 28rpx;
+  font-size: 34rpx;
+  color: #000;
+}
+.row-extra {
+  flex-basis: initial;
+  font-size: 32rpx;
+  color: #888;
+}
+.row-arrow {
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 16rpx;
+}
+
 .scroll-view_H{
   white-space: nowrap;
   display:flex;
@@ -32,5 +63,43 @@
   flex-grow:0;
   width: 300px;
   height: 200px;
+}
+
+movable-area {
+  height: 700rpx;
+  width: 620rpx;
+  margin: 20rpx 0rpx 0 0rpx;
+  background-color: #ccc;
+  overflow: hidden;
+}
+movable-view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200rpx;
+  width: 200rpx;
+  background: #108ee9;
+  color: #fff;
+}
+
+cover-image {
+  position: absolute;
+  left: 20px;
+  top: 100px;
+  height: 50px;
+  width: 50px;
+}
+.cover-view {
+  position: absolute;
+  top: calc(50% - 75rpx);
+  left: calc(30% - 150rpx);
+  display:flex;
+  flex-direction:row;
+  background-color: rgba(0, 0, 0, 0);
+}
+.cover-view-item{
+  width: 500rpx;
+  height: 200rpx;
+  font-size: 20rpx;
 }
 

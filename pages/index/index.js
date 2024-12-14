@@ -49,48 +49,27 @@ Page({
     vertical: false,
     interval: 1000,
     circular: false,
-    duration: 5000,
+    duration: 3000,
 
     modes: ['Normal', 'Deslizar', 'Desplazar'],
-    arrIndex: 0,
-    index: 0
+    index: 0,
+    viewDetailImage: false,
+    infoDetailImage: ''
   },
-  onLoad() {
-  },
-  changeIndicatorDots(e) {
-    this.setData({
-      indicatorDots: !this.data.indicatorDots,
-    });
-  },
-  changeVertical() {
-    this.setData({
-      vertical: !this.data.vertical,
-    });
-  },
-  changeCircular(e) {
-    this.setData({
-      circular: !this.data.circular,
-    });
-  },
-  changeAutoplay(e) {
-    this.setData({
-      autoplay: !this.data.autoplay,
-    });
-  },
-  intervalChange(e) {
-    this.setData({
-      interval: e.detail.value,
-    });
-  },
-  durationChange(e) {
-    this.setData({
-      duration: e.detail.value,
-    });
-  },
+
   bindPickerChange(e) {
     console.log(e.detail.value);
     this.setData({
       index: e.detail.value,
     });
   },
+
+  detail(e) {
+    console.log(e);
+    this.setData({
+      viewDetailImage : e.currentTarget.tagName === 'image' ? true : false,
+      infoNameImage: e.target.dataset.name,
+      infoPathImage: e.target.dataset.path
+    });
+  }
 });

@@ -36,10 +36,22 @@
 
       <movable-area a:if="{{index === 2}}">
         <movable-view x="{{item.cordX}}" y="{{item.cordY}}" direction="all" a:for="{{images}}">
-            <image mode="widthFix" src={{item.path}} />
+            <image data-name="{{item.text}}" data-path="{{item.path}}" mode="widthFix" src={{item.path}} onTap="detail" />
         </movable-view>
       </movable-area>
 
+      <cover-view class="cover-view" a:if="{{ viewDetailImage }}" onTap="detail">
+        <cover-view class="cover-view-item">
+          <view class="row">
+            <view class="row-title">Nombre:</view>
+            <view class="row-extra">{{infoNameImage}}</view>
+          </view>
+          <view class="row">
+            <view class="row-title">Path:</view>
+            <view class="row-extra">{{infoPathImage}}</view>
+          </view>
+        </cover-view>
+      </cover-view>
     </view>
   </view>
 </view>
