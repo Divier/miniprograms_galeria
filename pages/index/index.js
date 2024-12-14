@@ -52,7 +52,7 @@ Page({
     duration: 3000,
 
     modes: ['Normal', 'Deslizar', 'Desplazar'],
-    index: 0,
+    index: 1,
     viewDetailImage: false,
     infoDetailImage: ''
   },
