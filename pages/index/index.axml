@@ -1,4 +1,45 @@
+<view class="page">
+  <view class="page-description">Galeria</view>
+  <view class="page-section">
+    <view class="page-section-demo">
 
-<view class="container">
-  
+      <picker onChange="bindPickerChange" value="{{index}}" range="{{modes}}">
+        <view class="row">
+          <view class="row-title">Sel Modo: </view>
+          <view class="row-extra">Modo Actual：{{modes[index]}}</view>
+        </view>
+      </picker>
+
+      <swiper a:if="{{index === 0}}"
+          style="height:150px"
+          class="demo-swiper"
+          previousMargin="10px"
+          nextMargin="10px"
+          indicator-dots="{{indicatorDots}}"
+          autoplay="{{autoplay}}"
+          vertical="{{vertical}}"
+          interval="{{interval}}"
+          circular="{{circular}}"
+          duration="{{duration}}"
+      >
+        <swiper-item key="swiper-item-{{index}}" a:for="{{images}}">
+            <!--<view class="swiper-item bc_{{item.color}}">{{item.text}}</view>-->
+            <image mode="scaleToFill" src={{item.path}} />
+        </swiper-item>
+      </swiper>
+
+      <scroll-view class="scroll-view_H" scroll-x="{{true}}" style="width: 100%" a:if="{{index === 1}}" >
+        <view class="scroll-view-item_H" a:for="{{images}}">
+          <image mode="scaleToFill" src={{item.path}} />
+        </view>
+      </scroll-view>
+
+      <movable-area a:if="{{index === 2}}">
+        <movable-view x="{{item.cordX}}" y="{{item.cordY}}" direction="all" a:for="{{images}}">
+            <image mode="widthFix" src={{item.path}} />
+        </movable-view>
+      </movable-area>
+
+    </view>
+  </view>
 </view>

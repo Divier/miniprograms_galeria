@@ -1,35 +1,96 @@
 Page({
-  onLoad(query) {
-    // 页面加载
-    console.info(`Page onLoad with query: ${JSON.stringify(query)}`);
+  data: {
+    images: [
+      { 
+        path: '../../images/complete.jpg', 
+        text: 'Complete',
+        cordX: 0,
+        cordY: 0
+      },
+      { 
+        path: '../../images/elefante.jpg', 
+        text: 'Elefante', 
+        cordX: 10,
+        cordY: 10 
+      },
+      { 
+        path: '../../images/leon.jpg', 
+        text: 'Leon',
+        cordX: 20,
+        cordY: 20
+      },
+      { 
+        path: '../../images/mono.jpg', 
+        text: 'Mono',
+        cordX: 30,
+        cordY: 30
+      },
+      { 
+        path: '../../images/pez.jpg', 
+        text: 'Pez',
+        cordX: 40,
+        cordY: 40
+      },
+      { 
+        path: '../../images/pulpo.jpg', 
+        text: 'Pulpo' ,
+        cordX: 50,
+        cordY: 50
+      },
+      { 
+        path: '../../images/tortuga.jpg', 
+        text: 'Tortuga',
+        cordX: 60,
+        cordY: 60 
+      },
+    ],
+    indicatorDots: true,
+    autoplay: true,
+    vertical: false,
+    interval: 1000,
+    circular: false,
+    duration: 5000,
+
+    modes: ['Normal', 'Deslizar', 'Desplazar'],
+    arrIndex: 0,
+    index: 0
   },
-  onReady() {
-    // 页面加载完成
+  onLoad() {
   },
-  onShow() {
-    // 页面显示
+  changeIndicatorDots(e) {
+    this.setData({
+      indicatorDots: !this.data.indicatorDots,
+    });
   },
-  onHide() {
-    // 页面隐藏
+  changeVertical() {
+    this.setData({
+      vertical: !this.data.vertical,
+    });
   },
-  onUnload() {
-    // 页面被关闭
+  changeCircular(e) {
+    this.setData({
+      circular: !this.data.circular,
+    });
   },
-  onTitleClick() {
-    // 标题被点击
+  changeAutoplay(e) {
+    this.setData({
+      autoplay: !this.data.autoplay,
+    });
   },
-  onPullDownRefresh() {
-    // 页面被下拉
+  intervalChange(e) {
+    this.setData({
+      interval: e.detail.value,
+    });
   },
-  onReachBottom() {
-    // 页面被拉到底部
+  durationChange(e) {
+    this.setData({
+      duration: e.detail.value,
+    });
   },
-  onShareAppMessage() {
-    // 返回自定义分享信息
-    return {
-      title: 'My App',
-      desc: 'My App description',
-      path: 'pages/index/index',
-    };
+  bindPickerChange(e) {
+    console.log(e.detail.value);
+    this.setData({
+      index: e.detail.value,
+    });
   },
 });
